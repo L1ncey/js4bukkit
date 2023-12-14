@@ -50,7 +50,7 @@ A heartfelt thank you to all our developers for their invaluable contributions t
 
 ### Cute Factor Specialist
 
-- **Wink**
+- [**Wink**](https://github.com/W1nkQwQ)
     - *Role:* Cutie Specialist
     - *Responsibilities:* While not directly involved in development, Wink plays a crucial role in boosting team morale and creating a positive project environment.
 
