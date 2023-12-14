@@ -1,6 +1,6 @@
 ## js4bukkit
 
-Experimental Project: Use JavaScript for Bukkit Plugin Development
+Experimental Project: Use JavaScript for Bukkit Plugin Development.
 
 ## Overview
 
