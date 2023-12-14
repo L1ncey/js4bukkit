@@ -27,3 +27,30 @@ While js4bukkit is still in its early stages of development, here are some of th
 ## Disclaimer
 
 js4bukkit is an experimental project with many planned features yet to be implemented. Use it cautiously, and avoid deployment in production environments until it reaches a stable release.
+
+## Development Team
+
+A heartfelt thank you to all our developers for their invaluable contributions to this project:
+
+### Main Developers
+
+- [**NaerQAQ**](https://github.com/NaerQAQ)
+    - *Role:* Developer
+    - *Responsibilities:* NaerQAQ is a core developer, responsible for shaping the project's architecture, implementing key features, and ensuring the overall quality of the codebase.
+
+- [**Lincey**](https://github.com/L1ncey)
+    - *Role:* Developer
+    - *Responsibilities:* Lincey contributes significantly to the project's development, focusing on feature implementation, code enhancement, and collaborative problem-solving.
+
+### Technical Consultant and Partial Developer
+
+- [**2000000**](https://gitee.com/A2000000)
+    - *Role:* Technical Consultant, Partial Developer
+    - *Responsibilities:* 2000000 serves as a technical consultant, providing valuable insights and advice. Additionally, they actively participate in development, contributing to key aspects of the project.
+
+### Cute Factor Specialist
+
+- **Wink**
+    - *Role:* Cutie Specialist
+    - *Responsibilities:* While not directly involved in development, Wink plays a crucial role in boosting team morale and creating a positive project environment.
+
