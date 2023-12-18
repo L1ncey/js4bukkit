@@ -1,0 +1,59 @@
+default:
+  - " "
+  - "&6Js4Bukkit, https://github.com/NaerQAQ/js4bukkit"
+  - " "
+  - "&7&lTo inquire more information, use the command \"/js4bukkit help\"."
+  - " "
+
+help:
+  - " "
+  - "&6Js4Bukkit &7| &eHELP"
+  - " "
+  - "&7▪ &bHelp &f- Display help information."
+  - "&7▪ &bList &f- Display all script plugins."
+  - "&7▪ &bReload &f- Reload all script plugins."
+  - " "
+  - "&7&lDependencies cannot be reloaded dynamically. If necessary, a server restart is required."
+  - " "
+
+list-head:
+  - " "
+  - "&6Js4Bukkit &7| &eLIST"
+  - " "
+
+list-plugins:
+  - "&7▪ &bName: &a<name>"
+  - "&7▪ &bAuthor: &a<author>"
+  - "&7▪ &bVersion: &a<version>"
+  - "&7▪ &bDescription: &a<description>"
+  - "&7▪ &7&lFolder: &a&l<folder>"
+  - " "
+
+list-end:
+  - "&6The total number of loaded script plugins: <total>"
+
+libs-head:
+  - " "
+  - "&6Js4Bukkit &7| &eLIBS"
+  - " "
+
+libs-list:
+  - "&7▪ &bFile name: &a<name>"
+
+libs-end:
+  - "&6The total number of loaded libs: <total>"
+
+libs-load-done:
+  - "&aExternal Jar &e<file_name> loaded successfully!"
+
+maven-dependency-start-download:
+  - "&aAbout to start downloading! &egroupId: <groupId>, artifactId: <artifactId>, version: <version>."
+
+maven-dependency-download-sha512-error:
+  - "&cDependency Jar file's sha512 does not match the expected value. Download error? The file has been deleted. &4groupId: <groupId>, artifactId: <artifactId>, version: <version>. "
+
+maven-dependency-done:
+  - "&aDependency Jar file downloaded successfully. &egroupId: <groupId>, artifactId: <artifactId>, version: <version>. "
+
+maven-dependency-exists:
+  - "&aDependency Jar already exists, skipping download. &egroupId: <groupId>, artifactId: <artifactId>, version: <version>. "

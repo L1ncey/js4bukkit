@@ -1,0 +1,9 @@
+# Eg:
+#
+# https://mvnrepository.com/artifact/com.github.ben-manes.caffeine/guava
+#
+# caffeine:
+#   groupId: com.github.ben-manes.caffeine
+#   artifactId: guava
+#   version: 3.1.8
+#   repository: https://repo.maven.apache.org/maven2/

@@ -1,0 +1,7 @@
+# 所有注册的插件
+
+example-plugin: # 所在的文件夹名
+  name: ExamplePlugin                   # 插件名称
+  author: NaerQAQ                         # 作者
+  version: 1.0                                   # 版本
+  description: Example plugin.         # 描述信息

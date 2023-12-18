@@ -1,0 +1,6 @@
+name: js4bukkit
+version: '${project.version}'
+main: me.naerqaq.Js4Bukkit
+authors: [ NaerQAQ, L1ncey, "2000000", Wink ]
+softdepend:
+  - PlaceholderAPI
