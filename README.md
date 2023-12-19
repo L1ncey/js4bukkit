@@ -46,8 +46,9 @@ implemented in future releases:
 - **_Advanced Configuration Options_**: Provide more flexibility in configuring and customizing plugin behavior.
 
 - **_Documentation Enrichment_**: Continuously improve and expand the documentation to assist developers in utilizing
-  the
-  full potential of js4bukkit.
+  the full potential of js4bukkit.
+
+- **_NMS Support_**: Provide a user-friendly reflective library for easy NMS manipulation without the need for complex code.
 
 **_Italic indicates to-do items; we will update these features soon._**
 
