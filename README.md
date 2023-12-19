@@ -2,7 +2,8 @@
 
 Experimental Project: Use JavaScript for Bukkit Plugin Development.
 
-It is still actively under development. This is an experimental project, and we do not recommend using it in a production environment until a stable version is released.
+It is still actively under development. This is an experimental project, and we do not recommend using it in a
+production environment until a stable version is released.
 
 ## Overview
 
@@ -22,7 +23,8 @@ implemented in future releases:
 
 - **JavaScript-First Development**: Unleash the capabilities of JavaScript for crafting Bukkit plugins effortlessly.
 
-- **External dependencies loading**: You can easily invoke third-party libraries by placing the JAR files or directly providing 
+- **External dependencies loading**: You can easily invoke third-party libraries by placing the JAR files or directly
+  providing
   Maven dependencies; they will be automatically resolved.
 
 - **Event Listeners**: Define responsive event listeners using JavaScript to handle a variety of in-game events.
@@ -43,7 +45,8 @@ implemented in future releases:
 
 - **_Advanced Configuration Options_**: Provide more flexibility in configuring and customizing plugin behavior.
 
-- **_Documentation Enrichment_**: Continuously improve and expand the documentation to assist developers in utilizing the
+- **_Documentation Enrichment_**: Continuously improve and expand the documentation to assist developers in utilizing
+  the
   full potential of js4bukkit.
 
 **_Italic indicates to-do items; we will update these features soon._**

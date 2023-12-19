@@ -111,13 +111,15 @@ public class ConfigManager {
         while (entries.hasMoreElements()) {
             JarEntry entry = entries.nextElement();
 
+            String entryName = entry.getName();
+
             // 如果不属于指定文件夹
-            if (!entry.getName().startsWith(folder)) {
+            if (!entryName.startsWith(folder)) {
                 continue;
             }
 
             // 删除文件夹前缀构造文件名
-            String fileName = entry.getName().substring(folder.length());
+            String fileName = entryName.substring(folder.length());
             File destinationFile = new File(targetFolder, fileName);
 
             if (entry.isDirectory()) {

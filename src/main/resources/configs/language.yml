@@ -11,6 +11,7 @@ help:
   - " "
   - "&7▪ &bHelp &f- Display help information."
   - "&7▪ &bList &f- Display all script plugins."
+  - "&7▪ &bLibs &f- Display all third-party dependencies."
   - "&7▪ &bReload &f- Reload all script plugins."
   - " "
   - "&7&lDependencies cannot be reloaded dynamically. If necessary, a server restart is required."
@@ -38,16 +39,21 @@ libs-head:
   - " "
 
 libs-list:
-  - "&7▪ &bFile name: &a<name>"
+  - "&7▪ &bFile name: &a<file_name>"
+  - "&7▪ &bPath: &a<path>"
+  - " "
 
 libs-end:
   - "&6The total number of loaded libs: <total>"
 
 libs-load-done:
-  - "&aExternal Jar &e<file_name> loaded successfully!"
+  - "&aExternal Jar &e<file_name> &aloaded successfully! Path: &e<path>."
 
 maven-dependency-start-download:
   - "&aAbout to start downloading! &egroupId: <groupId>, artifactId: <artifactId>, version: <version>."
+
+maven-dependency-download-error:
+  - "&cDependency download error. Is this a network issue? Please check the configuration and network environment, or manually download the Jar. &eMessage: <message>."
 
 maven-dependency-download-sha512-error:
   - "&cDependency Jar file's sha512 does not match the expected value. Download error? The file has been deleted. &4groupId: <groupId>, artifactId: <artifactId>, version: <version>. "

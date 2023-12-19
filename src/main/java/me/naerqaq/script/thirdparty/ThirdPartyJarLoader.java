@@ -27,7 +27,7 @@ public class ThirdPartyJarLoader {
     /**
      * 已加载的第三方 Jar.
      */
-    private static final ConcurrentLinkedQueue<File> LOADED_THIRD_PARTY_JARS =
+    public static final ConcurrentLinkedQueue<File> LOADED_THIRD_PARTY_JAR_FILES =
             new ConcurrentLinkedQueue<>();
 
     /**
@@ -63,11 +63,12 @@ public class ThirdPartyJarLoader {
                 ucp, file.toURI().toURL()
         );
 
-        LOADED_THIRD_PARTY_JARS.add(file);
+        LOADED_THIRD_PARTY_JAR_FILES.add(file);
 
         QuickUtils.sendMessageByKey(
                 ConsoleMessageTypeEnum.NORMAL,
                 "libs-load-done",
+                "<path>", file.getPath(),
                 "<file_name>", file.getName()
         );
     }

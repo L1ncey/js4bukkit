@@ -27,7 +27,7 @@ public class StringUtils {
         }
 
         for (int i = 0; i < params.length; i += 2) {
-            string = string.replaceAll(params[i], params[i + 1]);
+            string = string.replace(params[i], params[i + 1]);
         }
 
         return ChatColor.translateAlternateColorCodes('&', string);

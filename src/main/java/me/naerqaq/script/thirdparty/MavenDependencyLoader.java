@@ -43,26 +43,34 @@ public class MavenDependencyLoader {
         int totalTasks = singleLayerKeySet.size();
         CountDownLatch latch = new CountDownLatch(totalTasks);
 
-        // 多线程下载等待
-        singleLayerKeySet.forEach(
-                key -> new Scheduler()
-                        .setSchedulerTypeEnum(SchedulerTypeEnum.NEW_THREAD)
-                        .setSchedulerExecutionMode(SchedulerExecutionMode.ASYNC)
-                        .setRunnable(() -> {
-                            try {
-                                MavenDependency mavenDependency =
-                                        new MavenDependency().init(mavenDependencies, key);
+        // 多线程下载
+        for (String key : singleLayerKeySet) {
+            Runnable downloadRunnable = () -> {
+                try {
+                    MavenDependency mavenDependency =
+                            new MavenDependency().init(mavenDependencies, key);
 
-                                if (mavenDependency != null) {
-                                    download(mavenDependency);
-                                    MavenDependency.MAVEN_DEPENDENCIES.add(mavenDependency);
-                                }
-                            } finally {
-                                latch.countDown();
-                            }
-                        })
-                        .run()
-        );
+                    if (mavenDependency != null) {
+                        download(mavenDependency);
+                        MavenDependency.MAVEN_DEPENDENCIES.add(mavenDependency);
+                    }
+                } catch (Throwable throwable) {
+                    QuickUtils.sendMessageByKey(
+                            ConsoleMessageTypeEnum.ERROR,
+                            "maven-dependency-download-error",
+                            "<message>", throwable.getMessage()
+                    );
+                } finally {
+                    latch.countDown();
+                }
+            };
+
+            new Scheduler()
+                    .setSchedulerTypeEnum(SchedulerTypeEnum.NEW_THREAD)
+                    .setSchedulerExecutionMode(SchedulerExecutionMode.ASYNC)
+                    .setRunnable(downloadRunnable)
+                    .run();
+        }
 
         latch.await();
     }
@@ -82,11 +90,8 @@ public class MavenDependencyLoader {
 
         // 拼接
         String artifactPath =
-                groupId.replace('.', '/') + "/" +
-                artifactId + "/" +
-                version + "/" +
-                artifactId + "-" +
-                version + ".jar";
+                groupId.replace('.', '/') + "/" + artifactId + "/" +
+                version + "/" + artifactId + "-" + version + ".jar";
 
         String[] strings = new String[]{
                 "<version>", version,
@@ -108,8 +113,8 @@ public class MavenDependencyLoader {
         // 构建目标文件
         String targetFilePath =
                 ThirdPartyJarLoader.THIRD_PARTY_JARS_FOLDER + "/" +
-                artifactId + "-" +
-                version + ".jar";
+                groupId + "/" + artifactId + "/" + version + "/" +
+                artifactId + "-" + version + ".jar";
 
         File targetFile = new File(targetFilePath);
 

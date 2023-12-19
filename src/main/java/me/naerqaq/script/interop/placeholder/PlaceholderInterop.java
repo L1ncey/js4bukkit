@@ -88,7 +88,7 @@ public class PlaceholderInterop implements InteropInterface {
         } catch (Throwable throwable) {
             QuickUtils.sendMessage(
                     ConsoleMessageTypeEnum.ERROR,
-                    "&ePlaceholder API&c 注销异常，这是最新版吗? 请尝试更新它: &ehttps://www.spigotmc.org/resources/placeholderapi.6245"
+                    "&ePlaceholder API&c logout exception. Is this the latest version? Please try updating it: &ehttps://www.spigotmc.org/resources/placeholderapi.6245\n"
             );
         }
     }
@@ -100,7 +100,7 @@ public class PlaceholderInterop implements InteropInterface {
         if (!Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             QuickUtils.sendMessage(
                     ConsoleMessageTypeEnum.ERROR,
-                    "&c您没有安装&e Placeholder API&c，如有需要请下载它: &ehttps://www.spigotmc.org/resources/placeholderapi.6245"
+                    "&cYou haven't installed the &ePlaceholder API&c. If needed, please download it: &ehttps://www.spigotmc.org/resources/placeholderapi.6245\n"
             );
 
             return false;

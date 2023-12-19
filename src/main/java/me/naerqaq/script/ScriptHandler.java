@@ -4,12 +4,17 @@ import de.leonhard.storage.Yaml;
 import lombok.SneakyThrows;
 import me.naerqaq.Js4Bukkit;
 import me.naerqaq.io.config.ConfigManager;
+import me.naerqaq.script.interop.command.CommandInterop;
 import me.naerqaq.script.interop.listener.EasyEventListenerInterop;
 import me.naerqaq.script.interop.listener.EventListenerInterop;
+import me.naerqaq.script.interop.placeholder.PlaceholderInterop;
 import me.naerqaq.script.objects.handler.CustomContextHandler;
 import me.naerqaq.script.objects.handler.ScriptExecutorHandler;
 import me.naerqaq.script.objects.objects.ScriptExecutor;
 import me.naerqaq.script.objects.objects.ScriptPlugin;
+import me.naerqaq.thread.Scheduler;
+import me.naerqaq.thread.enums.SchedulerExecutionMode;
+import me.naerqaq.thread.enums.SchedulerTypeEnum;
 import me.naerqaq.utils.common.text.QuickUtils;
 import me.naerqaq.utils.common.text.enums.ConsoleMessageTypeEnum;
 
@@ -115,7 +120,17 @@ public class ScriptHandler {
     public static void unloadScripts() {
         ScriptExecutorHandler.invoke("onUnload");
 
-        // 应首先注销简易监听器
+        // 指令注销
+        CommandInterop.COMMAND_INTEROPS.forEach(
+                CommandInterop::unregister
+        );
+
+        // Placeholder API 注销
+        PlaceholderInterop.PLACEHOLDER_INTEROPS.forEach(
+                PlaceholderInterop::unregister
+        );
+
+        // 简易监听器注销应在普通监听器之前
         EasyEventListenerInterop.EASY_EVENT_LISTENERS.forEach(
                 EasyEventListenerInterop::unregister
         );
@@ -134,15 +149,29 @@ public class ScriptHandler {
         CustomContextHandler.CUSTOM_CONTEXTS.forEach(
                 CustomContextHandler::removeCustomContext
         );
+
+        // 清空已注册的脚本插件
+        SCRIPT_PLUGINS.clear();
     }
 
     /**
      * 重载脚本。
+     *
+     * <p>
+     * 强制同步。
+     * </p>
      */
     public static void reloadScripts() {
-        ScriptExecutorHandler.invoke("onReload");
+        // 同步
+        new Scheduler()
+                .setSchedulerTypeEnum(SchedulerTypeEnum.RUN)
+                .setSchedulerExecutionMode(SchedulerExecutionMode.SYNC)
+                .setRunnable(() -> {
+                    ScriptExecutorHandler.invoke("onReload");
 
-        unloadScripts();
-        registerScripts();
+                    unloadScripts();
+                    registerScripts();
+                })
+                .run();
     }
 }

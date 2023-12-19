@@ -29,8 +29,7 @@ public class CommandInterop implements InteropInterface {
     /**
      * 所有实例。
      */
-    @Getter
-    private static final ConcurrentLinkedQueue<CommandInterop> COMMAND_INTEROPS =
+    public static final ConcurrentLinkedQueue<CommandInterop> COMMAND_INTEROPS =
             new ConcurrentLinkedQueue<>();
 
     /**
