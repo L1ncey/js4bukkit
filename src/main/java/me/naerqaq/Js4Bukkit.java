@@ -8,6 +8,7 @@ import me.naerqaq.io.config.ConfigManager;
 import me.naerqaq.script.ScriptHandler;
 import me.naerqaq.script.thirdparty.MavenDependencyLoader;
 import me.naerqaq.script.thirdparty.ThirdPartyJarLoader;
+import me.naerqaq.tick.TickManager;
 import me.naerqaq.utils.common.text.QuickUtils;
 import me.naerqaq.utils.common.text.enums.ConsoleMessageTypeEnum;
 import org.apache.commons.lang3.StringUtils;
@@ -79,6 +80,9 @@ public class Js4Bukkit extends JavaPlugin {
 
         // 脚本注册
         ScriptHandler.registerScripts();
+
+        // 游戏内Tick监听
+        TickManager.getInstance().start();
     }
 
     /**
