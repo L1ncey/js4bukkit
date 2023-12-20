@@ -1,14 +1,12 @@
 package me.lincey.tick;
 
 import lombok.Getter;
+import me.lincey.tick.interfaces.PostTickListener;
+import me.lincey.tick.interfaces.PreTickListener;
 import me.naerqaq.thread.Scheduler;
 import me.naerqaq.thread.annotations.AutoStartTask;
 import me.naerqaq.thread.enums.SchedulerExecutionMode;
 import me.naerqaq.thread.enums.SchedulerTypeEnum;
-import me.lincey.tick.interfaces.PostTickListener;
-import me.lincey.tick.interfaces.PreTickListener;
-import me.naerqaq.utils.common.text.QuickUtils;
-import me.naerqaq.utils.common.text.enums.ConsoleMessageTypeEnum;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Deque;
@@ -27,16 +25,16 @@ import java.util.Set;
 @SuppressWarnings("unused")
 public class TickManager extends BukkitRunnable {
     @Getter
-    private final Deque<Runnable> queuedPreTasks = new LinkedList<>();
+    private static final Deque<Runnable> queuedPreTasks = new LinkedList<>();
 
     @Getter
-    private final Deque<Runnable> queuedPostTasks = new LinkedList<>();
+    private static final Deque<Runnable> queuedPostTasks = new LinkedList<>();
 
     @Getter
-    private final Set<PreTickListener> preTickListeners = new HashSet<>();
+    private static final Set<PreTickListener> preTickListeners = new HashSet<>();
 
     @Getter
-    private final Set<PostTickListener> postTickListeners = new HashSet<>();
+    private static final Set<PostTickListener> postTickListeners = new HashSet<>();
 
     private int serverTick;
 
@@ -58,25 +56,7 @@ public class TickManager extends BukkitRunnable {
                     this.postTick =
                             (short) ((this.serverTick * 2) % Short.MIN_VALUE);
 
-                    Task:
-                    {
-                        if (queuedPreTasks.isEmpty()) {
-                            break Task;
-                        }
-
-                        if (queuedPreTasks.size() > 1) {
-                            QuickUtils.sendMessage(ConsoleMessageTypeEnum.ERROR,
-                                    "&4More than one queued task found! Its kind of unstable!");
-
-                            // very unstable trust me
-                            queuedPreTasks.forEach(Runnable::run);
-
-                            break Task;
-                        }
-
-                        queuedPreTasks.pop().run();
-                    }
-
+                    queuedPreTasks.forEach(Runnable::run);
                     preTickListeners.forEach(preTickListener -> preTickListener.preTick(this.preTick));
                 })
                 .run();
@@ -87,25 +67,7 @@ public class TickManager extends BukkitRunnable {
                 .setSchedulerTypeEnum(SchedulerTypeEnum.RUN)
                 .setSchedulerExecutionMode(SchedulerExecutionMode.SYNC)
                 .setRunnable(() -> {
-                    Task:
-                    {
-                        if (queuedPostTasks.isEmpty()) {
-                            break Task;
-                        }
-
-                        if (queuedPostTasks.size() > 1) {
-                            QuickUtils.sendMessage(ConsoleMessageTypeEnum.ERROR,
-                                    "&4More than one queued task found! Its kind of unstable!");
-
-                            // very unstable trust me
-                            queuedPostTasks.forEach(Runnable::run);
-
-                            break Task;
-                        }
-
-                        queuedPostTasks.pop().run();
-                    }
-
+                    queuedPostTasks.forEach(Runnable::run);
                     postTickListeners.forEach(postTickListener -> postTickListener.preTick(this.postTick));
                 })
                 .run();
