@@ -1,15 +1,16 @@
-package me.naerqaq.utils.common.nms;
+package me.lincey.utils.common.nms;
 
 import lombok.SneakyThrows;
-import org.bukkit.Bukkit;
+import me.naerqaq.Js4Bukkit;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+/**
+ * @author Lincey
+ */
+@SuppressWarnings("unused")
 public class NMSUtil {
-
-    private static final String version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
-
     @SneakyThrows
     public static Object getFieldValue(Field field, Object object) {
         field.setAccessible(true);
@@ -35,7 +36,7 @@ public class NMSUtil {
         return method;
     }
 
-//    lol for anticheat purpose
+    // lol for anticheat purpose
     @SneakyThrows
     public static Object newAxisAlignedBB(double minX, double minY, double minZ, double maxX, double maxY, double maxZ) {
         return getNMSClass("AxisAlignedBB")
@@ -48,7 +49,7 @@ public class NMSUtil {
     }
 
     public static Class<?> getNMSClass(String string) {
-        return getClass("net.minecraft.server." + version + "." + string);
+        return getClass("net.minecraft.server." + Js4Bukkit.getNmsVersion() + "." + string);
     }
 
     @SneakyThrows

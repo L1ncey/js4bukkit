@@ -1,4 +1,4 @@
-package me.naerqaq.tick.annotation;
+package me.lincey.tick.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

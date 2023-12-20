@@ -3,7 +3,7 @@ package me.naerqaq.thread.annotations.impl;
 import me.naerqaq.annotations.processors.annotations.AutoAnnotationProcessor;
 import me.naerqaq.annotations.processors.interfaces.AnnotatedClassProcessorInterface;
 import me.naerqaq.thread.Scheduler;
-import me.naerqaq.thread.annotations.AutoStartTimerTask;
+import me.naerqaq.thread.annotations.AutoStartTask;
 import me.naerqaq.thread.enums.SchedulerExecutionMode;
 import me.naerqaq.thread.enums.SchedulerTypeEnum;
 import me.naerqaq.utils.common.text.QuickUtils;
@@ -12,9 +12,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 @SuppressWarnings("all")
 @AutoAnnotationProcessor(
-        annotationClass = AutoStartTimerTask.class
+        annotationClass = AutoStartTask.class
 )
-public class AutoStartTimerTaskProcessorImpl implements AnnotatedClassProcessorInterface {
+public class AutoStartTaskProcessorImpl implements AnnotatedClassProcessorInterface {
     @Override
     public void before() {
     }
@@ -23,15 +23,16 @@ public class AutoStartTimerTaskProcessorImpl implements AnnotatedClassProcessorI
     public void process(Class<?> clazz) throws Exception {
         String className = clazz.getName();
 
-        AutoStartTimerTask annotation = clazz.getAnnotation(AutoStartTimerTask.class);
+        AutoStartTask annotation = clazz.getAnnotation(AutoStartTask.class);
         BukkitRunnable bukkitRunnable = (BukkitRunnable) clazz.getDeclaredConstructor().newInstance();
 
         int delay = annotation.delay();
         int period = annotation.period();
+        SchedulerTypeEnum schedulerTypeEnum = annotation.schedulerTypeEnum();
         SchedulerExecutionMode schedulerExecutionMode = annotation.schedulerExecutionMode();
 
         new Scheduler()
-                .setSchedulerTypeEnum(SchedulerTypeEnum.TIMER)
+                .setSchedulerTypeEnum(schedulerTypeEnum)
                 .setSchedulerExecutionMode(schedulerExecutionMode)
                 .setDelay(delay)
                 .setPeriod(period)

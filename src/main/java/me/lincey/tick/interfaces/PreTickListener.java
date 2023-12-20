@@ -1,4 +1,4 @@
-package me.naerqaq.tick.inter;
+package me.lincey.tick.interfaces;
 
 /**
  * @author Lincey

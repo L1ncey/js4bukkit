@@ -8,7 +8,6 @@ import me.naerqaq.io.config.ConfigManager;
 import me.naerqaq.script.ScriptHandler;
 import me.naerqaq.script.thirdparty.MavenDependencyLoader;
 import me.naerqaq.script.thirdparty.ThirdPartyJarLoader;
-import me.naerqaq.tick.TickManager;
 import me.naerqaq.utils.common.text.QuickUtils;
 import me.naerqaq.utils.common.text.enums.ConsoleMessageTypeEnum;
 import org.apache.commons.lang3.StringUtils;
@@ -45,6 +44,10 @@ public class Js4Bukkit extends JavaPlugin {
     @Setter
     private static String dataFolderAbsolutePath;
 
+    @Getter
+    @Setter
+    private static String nmsVersion;
+
     /**
      * 插件开启。
      *
@@ -57,8 +60,15 @@ public class Js4Bukkit extends JavaPlugin {
         setInstance(this);
         setDataFolderAbsolutePath(getDataFolder().getAbsolutePath());
 
+        String serverPackage =
+                getServer().getClass().getPackage().getName();
+
+        setNmsVersion(
+                serverPackage.replace(".", ",").split(",")[3]
+        );
+
         String[] arrayVersion = StringUtils.substringsBetween(
-                getServer().getClass().getPackage().getName(), ".v", "_R"
+                serverPackage, ".v", "_R"
         );
 
         String stringVersion = Arrays.toString(arrayVersion)
@@ -80,9 +90,6 @@ public class Js4Bukkit extends JavaPlugin {
 
         // 脚本注册
         ScriptHandler.registerScripts();
-
-        // 游戏内Tick监听
-        TickManager.getInstance().start();
     }
 
     /**

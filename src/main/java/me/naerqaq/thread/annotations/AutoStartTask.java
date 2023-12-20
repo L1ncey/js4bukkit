@@ -1,6 +1,7 @@
 package me.naerqaq.thread.annotations;
 
 import me.naerqaq.thread.enums.SchedulerExecutionMode;
+import me.naerqaq.thread.enums.SchedulerTypeEnum;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -16,25 +17,32 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface AutoStartTimerTask {
+public @interface AutoStartTask {
     /**
      * 延迟。
      *
      * @return 延迟
      */
-    int delay() default 0;
+    int delay();
 
     /**
      * 重复间隔。
      *
      * @return 重复间隔
      */
-    int period() default 10;
+    int period();
+
+    /**
+     * 任务类型。
+     *
+     * @return 任务类型
+     */
+    SchedulerTypeEnum schedulerTypeEnum();
 
     /**
      * 任务执行模式。
      *
      * @return 任务执行模式
      */
-    SchedulerExecutionMode schedulerExecutionMode() default SchedulerExecutionMode.ASYNC;
+    SchedulerExecutionMode schedulerExecutionMode();
 }
