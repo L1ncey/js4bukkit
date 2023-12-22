@@ -18,6 +18,26 @@ import java.lang.reflect.Method;
 @SuppressWarnings("unused")
 public class NMSUtil {
     /**
+     * 获取类的所有字段。
+     *
+     * @param clazz 类
+     * @return 类的所有字段
+     */
+    public static Field[] getAllFields(Class<?> clazz) {
+        return clazz.getDeclaredFields();
+    }
+
+    /**
+     * 获取类的所有方法。
+     *
+     * @param clazz 类
+     * @return 类的所有方法
+     */
+    public static Method[] getAllMethods(Class<?> clazz) {
+        return clazz.getDeclaredMethods();
+    }
+
+    /**
      * 通过反射获取指定对象的字段值。
      *
      * @param field  要获取的字段
@@ -42,6 +62,19 @@ public class NMSUtil {
         Field field = clazz.getDeclaredField(fieldName);
         field.setAccessible(true);
         return field;
+    }
+
+    /**
+     * 设置指定对象的字段值。
+     *
+     * @param field  要设置的字段
+     * @param object 目标对象
+     * @param value  要设置的值
+     */
+    @SneakyThrows
+    public static void setFieldValue(Field field, Object object, Object value) {
+        field.setAccessible(true);
+        field.set(object, value);
     }
 
     /**
