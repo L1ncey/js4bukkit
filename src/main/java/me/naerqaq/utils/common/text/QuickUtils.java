@@ -1,6 +1,7 @@
 package me.naerqaq.utils.common.text;
 
 import de.leonhard.storage.Yaml;
+import lombok.experimental.UtilityClass;
 import me.naerqaq.io.config.ConfigManager;
 import me.naerqaq.utils.common.text.enums.ConsoleMessageTypeEnum;
 import org.bukkit.Bukkit;
@@ -15,6 +16,7 @@ import java.util.List;
  * @version 1.0
  * @since 2023/10/8
  */
+@UtilityClass
 public class QuickUtils {
     /**
      * 向控制台发送输出消息。

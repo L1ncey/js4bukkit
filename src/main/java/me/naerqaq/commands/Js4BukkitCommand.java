@@ -11,6 +11,7 @@ import me.naerqaq.utils.common.text.QuickUtils;
 import org.bukkit.command.CommandSender;
 
 import java.io.File;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
@@ -58,7 +59,7 @@ public class Js4BukkitCommand {
     public void list(
             @Sender CommandSender commandSender
     ) {
-        ConcurrentLinkedQueue<ScriptPlugin> scriptPlugins =
+        Queue<ScriptPlugin> scriptPlugins =
                 ScriptHandler.SCRIPT_PLUGINS;
 
         QuickUtils.sendMessageByKey(commandSender, "list-head");
@@ -91,7 +92,7 @@ public class Js4BukkitCommand {
     public void libs(
             @Sender CommandSender commandSender
     ) {
-        ConcurrentLinkedQueue<File> loadedThirdPartyJarFiles =
+        Queue<File> loadedThirdPartyJarFiles =
                 ThirdPartyJarLoader.LOADED_THIRD_PARTY_JAR_FILES;
 
         QuickUtils.sendMessageByKey(commandSender, "libs-head");

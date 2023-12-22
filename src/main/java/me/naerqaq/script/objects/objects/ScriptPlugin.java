@@ -10,6 +10,7 @@ import me.naerqaq.io.file.utils.IOUtils;
 import me.naerqaq.script.ScriptHandler;
 
 import java.io.File;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.Collectors;
 
@@ -26,14 +27,34 @@ import java.util.stream.Collectors;
 @Accessors(chain = true)
 public class ScriptPlugin implements ObjectAutoInit {
     /**
-     * 文件夹、名称、作者、版本、描述信息。
+     * 文件夹。
      */
-    private String folder, name, author, version, description;
+    private String folder;
+
+    /**
+     * 名称。
+     */
+    private String name;
+
+    /**
+     * 作者。
+     */
+    private String author;
+
+    /**
+     * 版本。
+     */
+    private String version;
+
+    /**
+     * 描述。
+     */
+    private String description;
 
     /**
      * 所有的脚本插件对象实例。
      */
-    private ConcurrentLinkedQueue<File> scriptFiles =
+    private Queue<File> scriptFiles =
             new ConcurrentLinkedQueue<>();
 
     /**

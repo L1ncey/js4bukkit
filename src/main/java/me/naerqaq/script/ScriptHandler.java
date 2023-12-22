@@ -1,6 +1,8 @@
 package me.naerqaq.script;
 
 import de.leonhard.storage.Yaml;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import me.naerqaq.Js4Bukkit;
 import me.naerqaq.io.config.ConfigManager;
@@ -20,6 +22,7 @@ import me.naerqaq.utils.common.text.enums.ConsoleMessageTypeEnum;
 
 import java.io.File;
 import java.util.Objects;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.Collectors;
 
@@ -30,6 +33,7 @@ import java.util.stream.Collectors;
  * @version 1.0
  * @since 2023/10/12
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ScriptHandler {
     /**
      * 脚本所在文件夹。
@@ -45,7 +49,7 @@ public class ScriptHandler {
     /**
      * 所有脚本插件对象。
      */
-    public static final ConcurrentLinkedQueue<ScriptPlugin> SCRIPT_PLUGINS =
+    public static final Queue<ScriptPlugin> SCRIPT_PLUGINS =
             new ConcurrentLinkedQueue<>();
 
     /**
@@ -68,7 +72,7 @@ public class ScriptHandler {
      *
      * @return 所有脚本文件
      */
-    public static ConcurrentLinkedQueue<File> getScriptFiles() {
+    public static Queue<File> getScriptFiles() {
         return SCRIPT_PLUGINS.stream()
                 .flatMap(scriptPlugin -> scriptPlugin.getScriptFiles().stream())
                 .collect(Collectors.toCollection(ConcurrentLinkedQueue::new));
@@ -81,7 +85,7 @@ public class ScriptHandler {
     public static void registerScripts() {
         registerScriptPlugins();
 
-        ConcurrentLinkedQueue<File> scriptFiles = getScriptFiles();
+        Queue<File> scriptFiles = getScriptFiles();
 
         scriptFiles.forEach(scriptFile -> {
             String scriptName = scriptFile.getName();

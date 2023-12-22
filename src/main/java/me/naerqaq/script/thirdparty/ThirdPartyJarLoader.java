@@ -1,5 +1,7 @@
 package me.naerqaq.script.thirdparty;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import me.naerqaq.Js4Bukkit;
 import me.naerqaq.io.file.utils.IOUtils;
@@ -11,6 +13,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
@@ -20,6 +23,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @version 1.0
  * @since 2023/12/18
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ThirdPartyJarLoader {
     public static final String THIRD_PARTY_JARS_FOLDER =
             Js4Bukkit.getDataFolderAbsolutePath() + "/libs/";
@@ -27,7 +31,7 @@ public class ThirdPartyJarLoader {
     /**
      * 已加载的第三方 Jar.
      */
-    public static final ConcurrentLinkedQueue<File> LOADED_THIRD_PARTY_JAR_FILES =
+    public static final Queue<File> LOADED_THIRD_PARTY_JAR_FILES =
             new ConcurrentLinkedQueue<>();
 
     /**

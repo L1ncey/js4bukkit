@@ -1,6 +1,9 @@
 package me.naerqaq.io.file.utils;
 
+import lombok.experimental.UtilityClass;
+
 import java.io.File;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.Stream;
 
@@ -11,6 +14,7 @@ import java.util.stream.Stream;
  * @version 1.0
  * @since 2023/10/9
  */
+@UtilityClass
 public class IOUtils {
     /**
      * 获取指定文件夹内的所有文件。
@@ -22,7 +26,7 @@ public class IOUtils {
      * @param folderPath 文件夹路径
      * @return 包含所有文件的并发链接队列
      */
-    public static ConcurrentLinkedQueue<File> getFiles(String folderPath) {
+    public static Queue<File> getFiles(String folderPath) {
         File folder = new File(folderPath);
 
         if (!folder.isDirectory()) {

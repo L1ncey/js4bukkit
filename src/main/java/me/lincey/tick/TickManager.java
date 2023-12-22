@@ -38,7 +38,9 @@ public class TickManager extends BukkitRunnable {
 
     private int serverTick;
 
-    private short preTick, postTick;
+    private short preTick;
+
+    private short postTick;
 
     @Override
     public void run() {

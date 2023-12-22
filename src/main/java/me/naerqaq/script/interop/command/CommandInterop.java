@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.Collectors;
 
@@ -29,7 +30,7 @@ public class CommandInterop implements InteropInterface {
     /**
      * 所有实例。
      */
-    public static final ConcurrentLinkedQueue<CommandInterop> COMMAND_INTEROPS =
+    public static final Queue<CommandInterop> COMMAND_INTEROPS =
             new ConcurrentLinkedQueue<>();
 
     /**

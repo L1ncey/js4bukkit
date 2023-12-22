@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 import me.naerqaq.basic.interfaces.ObjectAutoInit;
 
 import java.io.File;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
@@ -25,7 +26,7 @@ public class MavenDependency implements ObjectAutoInit {
     /**
      * 所有实例。
      */
-    public static final ConcurrentLinkedQueue<MavenDependency> MAVEN_DEPENDENCIES =
+    public static final Queue<MavenDependency> MAVEN_DEPENDENCIES =
             new ConcurrentLinkedQueue<>();
 
     /**
@@ -34,9 +35,24 @@ public class MavenDependency implements ObjectAutoInit {
     private File file;
 
     /**
-     * 仓库地址、组ID、工件ID、版本。
+     * 仓库地址。
      */
-    private String repository, groupId, artifactId, version;
+    private String repository;
+
+    /**
+     * 组ID.
+     */
+    private String groupId;
+
+    /**
+     * 工件ID.
+     */
+    private String artifactId;
+
+    /**
+     * 版本。
+     */
+    private String version;
 
     /**
      * 通过指定 Yaml 文件读取指定键值属性设置对象属性。

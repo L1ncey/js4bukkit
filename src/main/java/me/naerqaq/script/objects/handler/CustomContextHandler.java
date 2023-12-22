@@ -1,8 +1,11 @@
 package me.naerqaq.script.objects.handler;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import me.naerqaq.script.objects.objects.CustomContext;
 import org.mozilla.javascript.Context;
 
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
@@ -13,11 +16,12 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @see CustomContext
  * @since 2023/10/12
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CustomContextHandler {
     /**
      * 所有的 {@link CustomContextHandler} 对象。
      */
-    public static final ConcurrentLinkedQueue<CustomContext> CUSTOM_CONTEXTS =
+    public static final Queue<CustomContext> CUSTOM_CONTEXTS =
             new ConcurrentLinkedQueue<>();
 
     /**

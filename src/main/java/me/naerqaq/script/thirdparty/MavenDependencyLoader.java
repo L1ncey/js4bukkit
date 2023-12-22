@@ -1,6 +1,8 @@
 package me.naerqaq.script.thirdparty;
 
 import de.leonhard.storage.Yaml;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import me.naerqaq.io.config.ConfigManager;
 import me.naerqaq.script.thirdparty.objects.MavenDependency;
@@ -26,6 +28,7 @@ import java.util.concurrent.CountDownLatch;
  * @version 1.0
  * @since 2023/12/18
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MavenDependencyLoader {
     /**
      * 下载所有 Yaml 内的依赖。

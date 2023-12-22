@@ -11,6 +11,7 @@ import me.naerqaq.thread.enums.SchedulerTypeEnum;
 import org.bukkit.event.Event;
 
 import java.util.Optional;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.function.Consumer;
 
@@ -34,13 +35,13 @@ public class EasyEventListenerInterop<T extends Event> implements InteropInterfa
     /**
      * 所有简易监听器。
      */
-    public static final ConcurrentLinkedQueue<EasyEventListenerInterop<?>> EASY_EVENT_LISTENERS =
+    public static final Queue<EasyEventListenerInterop<?>> EASY_EVENT_LISTENERS =
             new ConcurrentLinkedQueue<>();
 
     /**
      * 所有简易监听器数据。
      */
-    public static final ConcurrentLinkedQueue<EasyEventListenerData> EASY_EVENT_LISTENERS_DATA =
+    public static final Queue<EasyEventListenerData> EASY_EVENT_LISTENERS_DATA =
             new ConcurrentLinkedQueue<>();
 
     /**
@@ -119,7 +120,7 @@ public class EasyEventListenerInterop<T extends Event> implements InteropInterfa
                 );
 
         // 创建一个新队列并添加进去
-        ConcurrentLinkedQueue<EasyEventListenerInterop<?>> easyEventListenerInterops =
+        Queue<EasyEventListenerInterop<?>> easyEventListenerInterops =
                 new ConcurrentLinkedQueue<>();
         easyEventListenerInterops.add(this);
 

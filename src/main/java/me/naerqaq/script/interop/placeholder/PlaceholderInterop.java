@@ -12,6 +12,7 @@ import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.function.BiFunction;
 
@@ -29,7 +30,7 @@ public class PlaceholderInterop implements InteropInterface {
     /**
      * 所有实例。
      */
-    public static final ConcurrentLinkedQueue<PlaceholderInterop> PLACEHOLDER_INTEROPS =
+    public static final Queue<PlaceholderInterop> PLACEHOLDER_INTEROPS =
             new ConcurrentLinkedQueue<>();
 
     /**

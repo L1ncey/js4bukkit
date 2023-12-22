@@ -6,7 +6,7 @@ import lombok.experimental.Accessors;
 import me.naerqaq.script.interop.listener.EasyEventListenerInterop;
 import me.naerqaq.script.interop.listener.EventListenerInterop;
 
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.Queue;
 
 /**
  * 简易事件监听器数据。
@@ -27,7 +27,7 @@ public class EasyEventListenerData {
     /**
      * 与之关联的简易事件监听器。
      */
-    private ConcurrentLinkedQueue<EasyEventListenerInterop<?>>
+    private Queue<EasyEventListenerInterop<?>>
             easyEventListeners;
 
     /**

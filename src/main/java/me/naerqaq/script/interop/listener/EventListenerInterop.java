@@ -10,6 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.function.Consumer;
 
@@ -27,7 +28,7 @@ public class EventListenerInterop<T extends Event> implements InteropInterface {
     /**
      * 监听列表。
      */
-    public static final ConcurrentLinkedQueue<EventListenerInterop<?>> EVENT_LISTENERS =
+    public static final Queue<EventListenerInterop<?>> EVENT_LISTENERS =
             new ConcurrentLinkedQueue<>();
 
     /**

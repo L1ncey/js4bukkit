@@ -1,5 +1,6 @@
 package me.naerqaq.utils.common.text;
 
+import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
  * @version 1.0
  * @since 2023/10/8
  */
+@UtilityClass
 public class StringUtils {
     /**
      * 通过替换指定参数对来生成新的字符串，并进行颜色处理等。

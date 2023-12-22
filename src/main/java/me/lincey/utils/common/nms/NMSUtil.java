@@ -1,6 +1,7 @@
 package me.lincey.utils.common.nms;
 
 import lombok.SneakyThrows;
+import lombok.experimental.UtilityClass;
 import me.naerqaq.Js4Bukkit;
 
 import java.lang.reflect.Field;
@@ -13,6 +14,7 @@ import java.lang.reflect.Method;
  * @version 1.0
  * @since 2023/12/20
  */
+@UtilityClass
 @SuppressWarnings("unused")
 public class NMSUtil {
     /**

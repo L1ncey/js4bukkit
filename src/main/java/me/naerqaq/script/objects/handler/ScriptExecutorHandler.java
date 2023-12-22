@@ -1,8 +1,11 @@
 package me.naerqaq.script.objects.handler;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import me.naerqaq.script.objects.objects.CustomContext;
 import me.naerqaq.script.objects.objects.ScriptExecutor;
 
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
@@ -13,11 +16,12 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @see ScriptExecutor
  * @since 2023/10/12
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ScriptExecutorHandler {
     /**
      * 所有的 {@link ScriptExecutorHandler} 对象。
      */
-    public static final ConcurrentLinkedQueue<ScriptExecutor> SCRIPT_EXECUTORS =
+    public static final Queue<ScriptExecutor> SCRIPT_EXECUTORS =
             new ConcurrentLinkedQueue<>();
 
     /**
