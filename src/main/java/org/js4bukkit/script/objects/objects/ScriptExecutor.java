@@ -3,14 +3,13 @@ package org.js4bukkit.script.objects.objects;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.apache.commons.io.FileUtils;
 import org.js4bukkit.basic.impl.ObjectNameImpl;
 import org.js4bukkit.script.ScriptHandler;
 import org.js4bukkit.script.objects.handler.CustomContextHandler;
-import org.apache.commons.io.FileUtils;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Function;
 import org.mozilla.javascript.ScriptableObject;
-import org.js4bukkit.script.objects.objects.CustomContext;
 
 import java.io.File;
 import java.io.IOException;

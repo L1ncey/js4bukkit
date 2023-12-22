@@ -4,13 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import org.js4bukkit.script.interfaces.InteropInterface;
-import org.js4bukkit.utils.common.text.QuickUtils;
-import org.js4bukkit.utils.common.text.enums.ConsoleMessageTypeEnum;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.js4bukkit.script.interfaces.InteropInterface;
+import org.js4bukkit.utils.common.text.QuickUtils;
+import org.js4bukkit.utils.common.text.enums.ConsoleMessageTypeEnum;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;

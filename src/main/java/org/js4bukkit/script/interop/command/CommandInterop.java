@@ -3,12 +3,12 @@ package org.js4bukkit.script.interop.command;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.js4bukkit.script.function.TriFunction;
-import org.js4bukkit.script.interfaces.InteropInterface;
-import org.js4bukkit.script.interop.command.utils.CommandUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
+import org.js4bukkit.script.function.TriFunction;
+import org.js4bukkit.script.interfaces.InteropInterface;
+import org.js4bukkit.script.interop.command.utils.CommandUtils;
 
 import java.util.Arrays;
 import java.util.List;

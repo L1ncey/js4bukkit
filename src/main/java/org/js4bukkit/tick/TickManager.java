@@ -1,13 +1,13 @@
 package org.js4bukkit.tick;
 
 import lombok.Getter;
-import org.js4bukkit.tick.interfaces.PostTickListener;
-import org.js4bukkit.tick.interfaces.PreTickListener;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.js4bukkit.thread.Scheduler;
 import org.js4bukkit.thread.annotations.AutoStartTask;
 import org.js4bukkit.thread.enums.SchedulerExecutionMode;
 import org.js4bukkit.thread.enums.SchedulerTypeEnum;
-import org.bukkit.scheduler.BukkitRunnable;
+import org.js4bukkit.tick.interfaces.PostTickListener;
+import org.js4bukkit.tick.interfaces.PreTickListener;
 
 import java.util.Deque;
 import java.util.HashSet;

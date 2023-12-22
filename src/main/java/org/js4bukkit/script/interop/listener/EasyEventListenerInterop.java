@@ -2,14 +2,13 @@ package org.js4bukkit.script.interop.listener;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.event.Event;
 import org.js4bukkit.script.interfaces.InteropInterface;
-import org.js4bukkit.script.interop.listener.EventListenerInterop;
 import org.js4bukkit.script.interop.listener.objects.EasyEventListenerData;
 import org.js4bukkit.script.interop.listener.objects.EventRegistrationInfo;
 import org.js4bukkit.thread.Scheduler;
 import org.js4bukkit.thread.enums.SchedulerExecutionMode;
 import org.js4bukkit.thread.enums.SchedulerTypeEnum;
-import org.bukkit.event.Event;
 
 import java.util.Optional;
 import java.util.Queue;

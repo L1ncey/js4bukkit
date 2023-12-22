@@ -1,5 +1,6 @@
 package org.js4bukkit.thread.annotations.impl;
 
+import org.bukkit.scheduler.BukkitRunnable;
 import org.js4bukkit.annotations.processors.annotations.AutoAnnotationProcessor;
 import org.js4bukkit.annotations.processors.interfaces.AnnotatedClassProcessorInterface;
 import org.js4bukkit.thread.Scheduler;
@@ -8,7 +9,6 @@ import org.js4bukkit.thread.enums.SchedulerExecutionMode;
 import org.js4bukkit.thread.enums.SchedulerTypeEnum;
 import org.js4bukkit.utils.common.text.QuickUtils;
 import org.js4bukkit.utils.common.text.enums.ConsoleMessageTypeEnum;
-import org.bukkit.scheduler.BukkitRunnable;
 
 @SuppressWarnings("all")
 @AutoAnnotationProcessor(

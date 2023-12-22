@@ -3,12 +3,12 @@ package org.js4bukkit.commands;
 import com.jonahseguin.drink.annotation.Command;
 import com.jonahseguin.drink.annotation.Require;
 import com.jonahseguin.drink.annotation.Sender;
+import org.bukkit.command.CommandSender;
 import org.js4bukkit.commands.annotations.AutoRegisterCommand;
 import org.js4bukkit.script.ScriptHandler;
 import org.js4bukkit.script.objects.objects.ScriptPlugin;
 import org.js4bukkit.script.thirdparty.ThirdPartyJarLoader;
 import org.js4bukkit.utils.common.text.QuickUtils;
-import org.bukkit.command.CommandSender;
 
 import java.io.File;
 import java.util.Queue;

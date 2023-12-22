@@ -4,10 +4,10 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.js4bukkit.basic.impl.ObjectNameImpl;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.js4bukkit.basic.impl.ObjectNameImpl;
 
 /**
  * 监听器注册的相关信息。

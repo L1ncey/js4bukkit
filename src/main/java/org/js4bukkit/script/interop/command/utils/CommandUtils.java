@@ -3,10 +3,10 @@ package org.js4bukkit.script.interop.command.utils;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
-import org.js4bukkit.Js4Bukkit;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandMap;
+import org.js4bukkit.Js4Bukkit;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

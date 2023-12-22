@@ -3,12 +3,12 @@ package org.js4bukkit.script.interop.listener;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.js4bukkit.Js4Bukkit;
-import org.js4bukkit.script.interfaces.InteropInterface;
-import org.js4bukkit.script.interop.listener.objects.EventRegistrationInfo;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+import org.js4bukkit.Js4Bukkit;
+import org.js4bukkit.script.interfaces.InteropInterface;
+import org.js4bukkit.script.interop.listener.objects.EventRegistrationInfo;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;

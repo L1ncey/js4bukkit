@@ -53,8 +53,8 @@ public class NMSUtil {
     /**
      * 通过字段名称获取类的字段。
      *
-     * @param clazz      类
-     * @param fieldName  字段名称
+     * @param clazz     类
+     * @param fieldName 字段名称
      * @return 类的字段
      */
     @SneakyThrows

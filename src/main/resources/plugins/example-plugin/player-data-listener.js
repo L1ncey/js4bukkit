@@ -34,21 +34,21 @@ const EventPriority = Packages.org.bukkit.event.EventPriority;
 const PlayerJoinEvent = Packages.org.bukkit.event.player.PlayerJoinEvent;
 
 // Event listening
-const EventListenerInterop = Packages.me.naerqaq.script.interop.listener.EventListenerInterop;
-const EventRegistrationInfo = Packages.me.naerqaq.script.interop.listener.objects.EventRegistrationInfo;
+const EventListenerInterop = Packages.org.js4bukkit.script.interop.listener.EventListenerInterop;
+const EventRegistrationInfo = Packages.org.js4bukkit.script.interop.listener.objects.EventRegistrationInfo;
 
 // Placeholder API
-const PlaceholderInterop = Packages.me.naerqaq.script.interop.placeholder.PlaceholderInterop;
+const PlaceholderInterop = Packages.org.js4bukkit.script.interop.placeholder.PlaceholderInterop;
 
 // Thread scheduling
-const Scheduler = Packages.me.naerqaq.thread.Scheduler;
-const SchedulerExecutionMode = Packages.me.naerqaq.thread.enums.SchedulerExecutionMode;
-const SchedulerTypeEnum = Packages.me.naerqaq.thread.enums.SchedulerTypeEnum;
+const Scheduler = Packages.org.js4bukkit.thread.Scheduler;
+const SchedulerExecutionMode = Packages.org.js4bukkit.thread.enums.SchedulerExecutionMode;
+const SchedulerTypeEnum = Packages.org.js4bukkit.thread.enums.SchedulerTypeEnum;
 
 // Utilities
-const QuickUtils = Packages.me.naerqaq.utils.common.text.QuickUtils;
-const StringUtils = Packages.me.naerqaq.utils.common.text.StringUtils;
-const ConsoleMessageTypeEnum = Packages.me.naerqaq.utils.common.text.enums.ConsoleMessageTypeEnum;
+const QuickUtils = Packages.org.js4bukkit.utils.common.text.QuickUtils;
+const StringUtils = Packages.org.js4bukkit.utils.common.text.StringUtils;
+const ConsoleMessageTypeEnum = Packages.org.js4bukkit.utils.common.text.enums.ConsoleMessageTypeEnum;
 
 /**
  * Method automatically executed after the plugin script has been initialized.

@@ -1,9 +1,9 @@
 package org.js4bukkit.script.interop.tick;
 
+import org.js4bukkit.script.interfaces.InteropInterface;
 import org.js4bukkit.tick.TickManager;
 import org.js4bukkit.tick.interfaces.PostTickListener;
 import org.js4bukkit.tick.interfaces.PreTickListener;
-import org.js4bukkit.script.interfaces.InteropInterface;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -14,12 +14,15 @@ import java.util.function.Consumer;
 @SuppressWarnings("unused")
 public class TickManagerInterop implements InteropInterface {
     private Runnable queuedPreTask;
+
     private Runnable queuedPostTask;
 
     private PreTickListener preTickListener;
+
     private PostTickListener postTickListener;
 
     private Consumer<Integer> preTickListenerConsumer;
+
     private Consumer<Integer> postTickListenerConsumer;
 
     @Override

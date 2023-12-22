@@ -3,6 +3,8 @@ package org.js4bukkit;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
+import org.apache.commons.lang3.StringUtils;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.js4bukkit.annotations.processors.AnnotatedClassProcessor;
 import org.js4bukkit.io.config.ConfigManager;
 import org.js4bukkit.script.ScriptHandler;
@@ -10,8 +12,6 @@ import org.js4bukkit.script.thirdparty.MavenDependencyLoader;
 import org.js4bukkit.script.thirdparty.ThirdPartyJarLoader;
 import org.js4bukkit.utils.common.text.QuickUtils;
 import org.js4bukkit.utils.common.text.enums.ConsoleMessageTypeEnum;
-import org.apache.commons.lang3.StringUtils;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
 

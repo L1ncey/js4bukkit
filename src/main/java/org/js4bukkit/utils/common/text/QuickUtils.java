@@ -2,11 +2,10 @@ package org.js4bukkit.utils.common.text;
 
 import de.leonhard.storage.Yaml;
 import lombok.experimental.UtilityClass;
-import org.js4bukkit.io.config.ConfigManager;
-import org.js4bukkit.utils.common.text.StringUtils;
-import org.js4bukkit.utils.common.text.enums.ConsoleMessageTypeEnum;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.js4bukkit.io.config.ConfigManager;
+import org.js4bukkit.utils.common.text.enums.ConsoleMessageTypeEnum;
 
 import java.util.List;
 
