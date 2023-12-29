@@ -25,6 +25,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ThirdPartyJarLoader {
+    /**
+     * 第三方 Jar 所在的文件夹路径。
+     */
     public static final String THIRD_PARTY_JARS_FOLDER =
             Js4Bukkit.getDataFolderAbsolutePath() + "/libs/";
 

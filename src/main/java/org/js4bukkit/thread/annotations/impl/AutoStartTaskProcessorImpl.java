@@ -10,15 +10,31 @@ import org.js4bukkit.thread.enums.SchedulerTypeEnum;
 import org.js4bukkit.utils.common.text.QuickUtils;
 import org.js4bukkit.utils.common.text.enums.ConsoleMessageTypeEnum;
 
-@SuppressWarnings("all")
+/**
+ * {@link AutoStartTask} 注解处理器。
+ *
+ * @author NaerQAQ
+ * @version 1.0
+ * @since 2023/12/29
+ */
 @AutoAnnotationProcessor(
         annotationClass = AutoStartTask.class
 )
+@SuppressWarnings("unused")
 public class AutoStartTaskProcessorImpl implements AnnotatedClassProcessorInterface {
+    /**
+     * 处理前调用的方法。
+     */
     @Override
     public void before() {
     }
 
+    /**
+     * 对带有指定注解的类进行处理。
+     *
+     * @param clazz 带有指定注解的类对象
+     * @throws Exception 可能的抛出异常，将交由 {@link #exception(Class, Exception)} 方法处理
+     */
     @Override
     public void process(Class<?> clazz) throws Exception {
         String className = clazz.getName();
@@ -49,6 +65,12 @@ public class AutoStartTaskProcessorImpl implements AnnotatedClassProcessorInterf
         );
     }
 
+    /**
+     * 处理 {@link #process(Class)} 方法抛出的异常。
+     *
+     * @param clazz     抛出异常的带有指定注解的类对象
+     * @param exception 抛出的异常
+     */
     @Override
     public void exception(Class<?> clazz, Exception exception) {
         String className = clazz.getName();
@@ -62,6 +84,9 @@ public class AutoStartTaskProcessorImpl implements AnnotatedClassProcessorInterf
         );
     }
 
+    /**
+     * 当所有类都处理完毕后调用的方法
+     */
     @Override
     public void after() {
     }

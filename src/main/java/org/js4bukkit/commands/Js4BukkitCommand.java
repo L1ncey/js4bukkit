@@ -25,56 +25,63 @@ import java.util.Queue;
 )
 @SuppressWarnings("unused")
 public class Js4BukkitCommand {
+    /**
+     * 主命令。
+     *
+     * @param commandSender 执行者
+     */
     @Command(
             name = "",
             desc = "Js4Bukkit command.",
             async = true
     )
     @Require("js4bukkit.admin")
-    public void defaultCommand(
-            @Sender CommandSender commandSender
-    ) {
+    public void defaultCommand(@Sender CommandSender commandSender) {
         QuickUtils.sendMessageByKey(commandSender, "default");
     }
 
+    /**
+     * {@code help} 命令。
+     *
+     * @param commandSender 执行者
+     */
     @Command(
             name = "help",
             desc = "Js4Bukkit help command.",
             async = true
     )
     @Require("js4bukkit.admin")
-    public void help(
-            @Sender CommandSender commandSender
-    ) {
+    public void help(@Sender CommandSender commandSender) {
         QuickUtils.sendMessageByKey(commandSender, "help");
     }
 
+    /**
+     * {@code list} 命令。
+     *
+     * @param commandSender 执行者
+     */
     @Command(
             name = "list",
             desc = "Js4Bukkit list command.",
             async = true
     )
     @Require("js4bukkit.admin")
-    public void list(
-            @Sender CommandSender commandSender
-    ) {
+    public void list(@Sender CommandSender commandSender) {
         Queue<ScriptPlugin> scriptPlugins =
                 ScriptHandler.SCRIPT_PLUGINS;
 
         QuickUtils.sendMessageByKey(commandSender, "list-head");
 
-        for (ScriptPlugin scriptPlugin : scriptPlugins) {
-            QuickUtils.sendMessageByKey(
-                    commandSender,
-                    "list-plugins",
+        scriptPlugins.forEach(scriptPlugin -> QuickUtils.sendMessageByKey(
+                commandSender,
+                "list-plugins",
 
-                    "<name>", scriptPlugin.getName(),
-                    "<author>", scriptPlugin.getAuthor(),
-                    "<version>", scriptPlugin.getVersion(),
-                    "<description>", scriptPlugin.getDescription(),
-                    "<folder>", scriptPlugin.getFolder()
-            );
-        }
+                "<name>", scriptPlugin.getName(),
+                "<author>", scriptPlugin.getAuthor(),
+                "<version>", scriptPlugin.getVersion(),
+                "<description>", scriptPlugin.getDescription(),
+                "<folder>", scriptPlugin.getFolder()
+        ));
 
         QuickUtils.sendMessageByKey(
                 commandSender, "list-end",
@@ -82,29 +89,30 @@ public class Js4BukkitCommand {
         );
     }
 
+    /**
+     * {@code libs} 命令。
+     *
+     * @param commandSender 执行者
+     */
     @Command(
             name = "libs",
             desc = "Js4Bukkit list libs command.",
             async = true
     )
     @Require("js4bukkit.admin")
-    public void libs(
-            @Sender CommandSender commandSender
-    ) {
+    public void libs(@Sender CommandSender commandSender) {
         Queue<File> loadedThirdPartyJarFiles =
                 ThirdPartyJarLoader.LOADED_THIRD_PARTY_JAR_FILES;
 
         QuickUtils.sendMessageByKey(commandSender, "libs-head");
 
-        for (File file : loadedThirdPartyJarFiles) {
-            QuickUtils.sendMessageByKey(
-                    commandSender,
-                    "libs-list",
+        loadedThirdPartyJarFiles.forEach(file -> QuickUtils.sendMessageByKey(
+                commandSender,
+                "libs-list",
 
-                    "<file_name>", file.getName(),
-                    "<path>", file.getPath()
-            );
-        }
+                "<file_name>", file.getName(),
+                "<path>", file.getPath()
+        ));
 
         QuickUtils.sendMessageByKey(
                 commandSender, "libs-end",
@@ -112,15 +120,18 @@ public class Js4BukkitCommand {
         );
     }
 
+    /**
+     * {@code reload} 命令。
+     *
+     * @param commandSender 执行者
+     */
     @Command(
             name = "reload",
             desc = "Js4Bukkit reload command.",
             async = true
     )
     @Require("js4bukkit.admin")
-    public void reload(
-            @Sender CommandSender commandSender
-    ) {
+    public void reload(@Sender CommandSender commandSender) {
         ScriptHandler.reloadScripts();
     }
 }
