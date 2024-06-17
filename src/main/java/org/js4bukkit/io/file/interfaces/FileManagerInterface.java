@@ -14,7 +14,7 @@ public interface FileManagerInterface<T> {
     /**
      * 通过 {@link File} 对象获取特定文件类型对象。
      *
-     * @param file {@link File}
+     * @param file                    {@link File}
      * @param inputStreamFromResource 是否从资源内获取输入流
      * @return 特定文件类型对象
      */

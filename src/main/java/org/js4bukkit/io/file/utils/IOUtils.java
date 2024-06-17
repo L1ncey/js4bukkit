@@ -50,7 +50,7 @@ public class IOUtils {
     /**
      * 获取最终文件名。
      *
-     * @param name 文件名
+     * @param name      文件名
      * @param extension 文件拓展名
      * @return 包含后缀的最终文件名
      */
