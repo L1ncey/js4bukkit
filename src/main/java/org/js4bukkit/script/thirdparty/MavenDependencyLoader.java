@@ -94,7 +94,7 @@ public class MavenDependencyLoader {
         // 拼接
         String artifactPath =
                 groupId.replace('.', '/') + "/" + artifactId + "/" +
-                version + "/" + artifactId + "-" + version + ".jar";
+                        version + "/" + artifactId + "-" + version + ".jar";
 
         String[] strings = new String[]{
                 "<version>", version,
@@ -116,8 +116,8 @@ public class MavenDependencyLoader {
         // 构建目标文件
         String targetFilePath =
                 ThirdPartyJarLoader.THIRD_PARTY_JARS_FOLDER + "/" +
-                groupId + "/" + artifactId + "/" + version + "/" +
-                artifactId + "-" + version + ".jar";
+                        groupId + "/" + artifactId + "/" + version + "/" +
+                        artifactId + "-" + version + ".jar";
 
         File targetFile = new File(targetFilePath);
 

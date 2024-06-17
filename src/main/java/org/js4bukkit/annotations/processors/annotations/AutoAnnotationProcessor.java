@@ -2,7 +2,11 @@ package org.js4bukkit.annotations.processors.annotations;
 
 import org.js4bukkit.annotations.processors.interfaces.AnnotatedClassProcessorInterface;
 
-import java.lang.annotation.*;
+import java.lang.annotation.Annotation;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * 该注解用于标记需要自动处理注解的具体实现类。

@@ -1,7 +1,11 @@
 package org.js4bukkit.io.config;
 
 import de.leonhard.storage.Yaml;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Cleanup;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 import org.js4bukkit.Js4Bukkit;
 import org.js4bukkit.io.file.impl.YamlManager;
@@ -24,11 +28,6 @@ import java.util.jar.JarFile;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ConfigManager {
-    static {
-        loadConfigs("configs");
-        loadConfigs("plugins");
-    }
-
     /**
      * {@code config.yml} 配置文件实例。
      */
@@ -38,7 +37,6 @@ public class ConfigManager {
             Js4Bukkit.getDataFolderAbsolutePath() + "/configs/",
             true
     );
-
     /**
      * {@code language.yml} 配置文件实例。
      */
@@ -48,7 +46,6 @@ public class ConfigManager {
             Js4Bukkit.getDataFolderAbsolutePath() + "/configs/",
             true
     );
-
     /**
      * {@code plugins.yml} 配置文件实例。
      */
@@ -58,7 +55,6 @@ public class ConfigManager {
             Js4Bukkit.getDataFolderAbsolutePath() + "/configs/",
             true
     );
-
     /**
      * {@code maven-dependencies.yml} 配置文件实例。
      */
@@ -68,6 +64,11 @@ public class ConfigManager {
             Js4Bukkit.getDataFolderAbsolutePath() + "/configs/",
             true
     );
+
+    static {
+        loadConfigs("configs");
+        loadConfigs("plugins");
+    }
 
     /**
      * 从 Jar 文件中加载指定文件夹内的配置文件。
