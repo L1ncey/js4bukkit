@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.js4bukkit.io.file.ConfigurableFile;
 import org.js4bukkit.io.file.interfaces.FileManagerInterface;
+import org.js4bukkit.io.file.utils.IOUtils;
 
 import java.io.File;
 
@@ -25,18 +26,13 @@ public class TomlManager implements FileManagerInterface<Toml> {
     private static final TomlManager instance = new TomlManager();
 
     /**
-     * {@code Toml} 文件后缀常量。
-     */
-    private static final String TOML_FILE_EXTENSION = ".toml";
-
-    /**
      * {@inheritDoc}
      */
     @Override
-    public Toml get(File file) {
+    public Toml get(File file, boolean inputStreamFromResource) {
         return ConfigurableFile.builder()
                 .setFile(file)
-                .setInputStreamFromResource(true)
+                .setInputStreamFromResource(inputStreamFromResource)
                 .build()
                 .getSimplixBuilder()
                 .createToml();
@@ -47,6 +43,6 @@ public class TomlManager implements FileManagerInterface<Toml> {
      */
     @Override
     public Toml get(String name, String path, boolean inputStreamFromResource) {
-        return get(new File(path, name + TOML_FILE_EXTENSION));
+        return get(new File(path, IOUtils.getFinalFileName(name, ".toml")), inputStreamFromResource);
     }
 }

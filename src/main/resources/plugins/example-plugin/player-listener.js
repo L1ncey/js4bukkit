@@ -6,7 +6,7 @@
  *
  * @version        1.0
  * @since          2023/10/12
- * @author         NaerQAQ
+ * @author         NaerQAQ / 2000000
  */
 
 
@@ -38,7 +38,7 @@ const EventListenerInterop = Packages.org.js4bukkit.script.interop.listener.Even
 const EventRegistrationInfo = Packages.org.js4bukkit.script.interop.listener.objects.EventRegistrationInfo;
 
 // Placeholder API
-const PlaceholderInterop = Packages.org.js4bukkit.script.interop.placeholder.PlaceholderInterop;
+// const PlaceholderInterop = Packages.org.js4bukkit.script.interop.placeholder.PlaceholderInterop;
 
 // Thread scheduling
 const Scheduler = Packages.org.js4bukkit.thread.Scheduler;
@@ -73,12 +73,12 @@ function onLoad() {
         .register();
 
     // Placeholder API registration
-    new PlaceholderInterop()
-        .setAuthor("Js4Bukkit")
-        .setVersion("1.0")
-        .setIdentifier("js4bukkit")
-        .setExecutor(handlePlaceholder)
-        .register();
+    // new PlaceholderInterop()
+    //     .setAuthor("Js4Bukkit")
+    //     .setVersion("1.0")
+    //     .setIdentifier("js4bukkit")
+    //     .setExecutor(handlePlaceholder)
+    //     .register();
 }
 
 /**

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.js4bukkit.io.file.ConfigurableFile;
 import org.js4bukkit.io.file.interfaces.FileManagerInterface;
+import org.js4bukkit.io.file.utils.IOUtils;
 
 import java.io.File;
 
@@ -25,18 +26,13 @@ public class JsonManager implements FileManagerInterface<Json> {
     private static final JsonManager instance = new JsonManager();
 
     /**
-     * {@code Json} 文件后缀常量。
-     */
-    private static final String JSON_FILE_EXTENSION = ".json";
-
-    /**
      * {@inheritDoc}
      */
     @Override
-    public Json get(File file) {
+    public Json get(File file, boolean inputStreamFromResource) {
         return ConfigurableFile.builder()
                 .setFile(file)
-                .setInputStreamFromResource(true)
+                .setInputStreamFromResource(inputStreamFromResource)
                 .build()
                 .getSimplixBuilder()
                 .createJson();
@@ -47,6 +43,6 @@ public class JsonManager implements FileManagerInterface<Json> {
      */
     @Override
     public Json get(String name, String path, boolean inputStreamFromResource) {
-        return get(new File(path, name + JSON_FILE_EXTENSION));
+        return get(new File(path, IOUtils.getFinalFileName(name, ".json")), inputStreamFromResource);
     }
 }

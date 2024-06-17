@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.js4bukkit.io.file.ConfigurableFile;
 import org.js4bukkit.io.file.interfaces.FileManagerInterface;
+import org.js4bukkit.io.file.utils.IOUtils;
 
 import java.io.File;
 
@@ -25,18 +26,13 @@ public class YamlManager implements FileManagerInterface<Yaml> {
     private static final YamlManager instance = new YamlManager();
 
     /**
-     * {@code Yaml} 文件后缀常量。
-     */
-    private static final String YAML_FILE_EXTENSION = ".yml";
-
-    /**
      * {@inheritDoc}
      */
     @Override
-    public Yaml get(File file) {
+    public Yaml get(File file, boolean inputStreamFromResource) {
         return ConfigurableFile.builder()
                 .setFile(file)
-                .setInputStreamFromResource(true)
+                .setInputStreamFromResource(inputStreamFromResource)
                 .build()
                 .getSimplixBuilder()
                 .createYaml();
@@ -47,6 +43,6 @@ public class YamlManager implements FileManagerInterface<Yaml> {
      */
     @Override
     public Yaml get(String name, String path, boolean inputStreamFromResource) {
-        return get(new File(path, name + YAML_FILE_EXTENSION));
+        return get(new File(path, IOUtils.getFinalFileName(name, ".yml")), inputStreamFromResource);
     }
 }
