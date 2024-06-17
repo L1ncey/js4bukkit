@@ -58,11 +58,7 @@ public class ScriptPlugin implements ObjectAutoInit {
             new ConcurrentLinkedQueue<>();
 
     /**
-     * 通过指定 Yaml 文件读取指定键值属性设置对象属性。
-     *
-     * @param yaml    指定 Yaml 文件
-     * @param yamlKey 键值
-     * @return 设置完成后的对象
+     * {@inheritDoc}
      */
     @Override
     public ScriptPlugin init(Yaml yaml, String yamlKey) {

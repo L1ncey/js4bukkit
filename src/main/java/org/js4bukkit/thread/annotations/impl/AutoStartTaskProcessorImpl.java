@@ -23,17 +23,14 @@ import org.js4bukkit.utils.common.text.enums.ConsoleMessageTypeEnum;
 @SuppressWarnings("unused")
 public class AutoStartTaskProcessorImpl implements AnnotatedClassProcessorInterface {
     /**
-     * 处理前调用的方法。
+     * {@inheritDoc}
      */
     @Override
     public void before() {
     }
 
     /**
-     * 对带有指定注解的类进行处理。
-     *
-     * @param clazz 带有指定注解的类对象
-     * @throws Exception 可能的抛出异常，将交由 {@link #exception(Class, Exception)} 方法处理
+     * {@inheritDoc}
      */
     @Override
     public void process(Class<?> clazz) throws Exception {
@@ -66,10 +63,7 @@ public class AutoStartTaskProcessorImpl implements AnnotatedClassProcessorInterf
     }
 
     /**
-     * 处理 {@link #process(Class)} 方法抛出的异常。
-     *
-     * @param clazz     抛出异常的带有指定注解的类对象
-     * @param exception 抛出的异常
+     * {@inheritDoc}
      */
     @Override
     public void exception(Class<?> clazz, Exception exception) {
@@ -85,7 +79,7 @@ public class AutoStartTaskProcessorImpl implements AnnotatedClassProcessorInterf
     }
 
     /**
-     * 当所有类都处理完毕后调用的方法
+     * {@inheritDoc}
      */
     @Override
     public void after() {

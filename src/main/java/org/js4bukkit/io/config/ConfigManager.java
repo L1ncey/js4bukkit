@@ -16,11 +16,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 /**
- * 配置文件管理类。
- *
- * <p>
- * 该类提供配置文件的创建、获取等等。
- * </p>
+ * 配置文件管理类，该类提供配置文件的创建、获取等等。
  *
  * @author NaerQAQ
  * @version 1.0
@@ -37,6 +33,7 @@ public class ConfigManager {
             Js4Bukkit.getDataFolderAbsolutePath() + "/configs/",
             true
     );
+
     /**
      * {@code language.yml} 配置文件实例。
      */
@@ -46,6 +43,7 @@ public class ConfigManager {
             Js4Bukkit.getDataFolderAbsolutePath() + "/configs/",
             true
     );
+
     /**
      * {@code plugins.yml} 配置文件实例。
      */
@@ -55,6 +53,7 @@ public class ConfigManager {
             Js4Bukkit.getDataFolderAbsolutePath() + "/configs/",
             true
     );
+
     /**
      * {@code maven-dependencies.yml} 配置文件实例。
      */

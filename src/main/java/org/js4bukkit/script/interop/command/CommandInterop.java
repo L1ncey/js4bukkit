@@ -64,7 +64,7 @@ public class CommandInterop implements InteropInterface {
     private Command command = null;
 
     /**
-     * 注册指令。
+     * {@inheritDoc}
      */
     @Override
     public void register() {
@@ -74,7 +74,7 @@ public class CommandInterop implements InteropInterface {
     }
 
     /**
-     * 注销指令。
+     * {@inheritDoc}
      */
     @Override
     public void unregister() {

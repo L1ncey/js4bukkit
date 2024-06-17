@@ -17,11 +17,7 @@ import java.util.stream.Stream;
 @UtilityClass
 public class IOUtils {
     /**
-     * 获取指定文件夹内的所有文件。
-     *
-     * <p>
-     * 包括子文件夹。
-     * </p>
+     * 获取指定文件夹内的所有文件，包括子文件夹。
      *
      * @param folderPath 文件夹路径
      * @return 包含所有文件的并发链接队列

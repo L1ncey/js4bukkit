@@ -79,8 +79,9 @@ public class EasyEventListenerInterop<T extends Event> implements InteropInterfa
     }
 
     /**
-     * 注册事件监听。
+     * {@inheritDoc}
      */
+    @Override
     public void register() {
         EASY_EVENT_LISTENERS.add(this);
 
@@ -135,8 +136,9 @@ public class EasyEventListenerInterop<T extends Event> implements InteropInterfa
     }
 
     /**
-     * 注销事件监听。
+     * {@inheritDoc}
      */
+    @Override
     public void unregister() {
         Optional.ofNullable(getEasyEventListenerData())
                 .ifPresent(listenerData -> listenerData.remove(this));

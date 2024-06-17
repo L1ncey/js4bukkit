@@ -159,11 +159,7 @@ public class ScriptHandler {
     }
 
     /**
-     * 重载脚本。
-     *
-     * <p>
-     * 强制同步。
-     * </p>
+     * 重载脚本，强制同步。
      */
     public static void reloadScripts() {
         // 同步
