@@ -42,7 +42,7 @@ public class EventListenerInterop<T extends Event> implements InteropInterface {
     private EventRegistrationInfo eventRegistrationInfo;
 
     /**
-     * 注册事件监听。
+     * {@inheritDoc}
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -60,7 +60,7 @@ public class EventListenerInterop<T extends Event> implements InteropInterface {
     }
 
     /**
-     * 注销事件监听。
+     * {@inheritDoc}
      */
     @Override
     public void unregister() {

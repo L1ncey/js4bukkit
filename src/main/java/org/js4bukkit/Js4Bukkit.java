@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.js4bukkit.annotations.processors.AnnotatedClassProcessor;
 import org.js4bukkit.io.config.ConfigManager;
+import org.js4bukkit.io.file.utils.IOUtils;
 import org.js4bukkit.script.ScriptHandler;
 import org.js4bukkit.script.thirdparty.MavenDependencyLoader;
 import org.js4bukkit.script.thirdparty.ThirdPartyJarLoader;
@@ -80,8 +81,11 @@ public class Js4Bukkit extends JavaPlugin {
                 Double.parseDouble(stringVersion)
         );
 
-        // 配置文件与注解处理
-        ConfigManager.getConfig();
+        // 配置文件
+        ConfigManager.getLanguage();
+        IOUtils.loadConfigs("plugins");
+
+        // 注解处理
         AnnotatedClassProcessor.processAnnotatedClasses();
 
         // Maven 依赖与外部依赖加载

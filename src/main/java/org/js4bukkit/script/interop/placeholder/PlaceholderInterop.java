@@ -59,7 +59,7 @@ public class PlaceholderInterop implements InteropInterface {
     private PlaceholderExpansion placeholderExpansion = null;
 
     /**
-     * 注册 PlaceholderExpansion 实例。
+     * {@inheritDoc}
      */
     @Override
     public void register() {
@@ -74,8 +74,7 @@ public class PlaceholderInterop implements InteropInterface {
     }
 
     /**
-     * 注销 PlaceholderExpansion 实例。
-     * 低版本 Placeholder API 没有 unregister 方法，捕获异常以取消注销。
+     * {@inheritDoc}
      */
     @Override
     public void unregister() {
@@ -83,6 +82,7 @@ public class PlaceholderInterop implements InteropInterface {
             return;
         }
 
+        // 低版本 Placeholder API 没有 unregister 方法，捕获异常以取消注销。
         try {
             placeholderExpansion.unregister();
             PLACEHOLDER_INTEROPS.remove(this);

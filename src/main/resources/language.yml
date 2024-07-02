@@ -56,7 +56,7 @@ maven-dependency-download-error:
   - "&cDependency download error. Is this a network issue? Please check the configuration and network environment, or manually download the Jar. &eMessage: <message>."
 
 maven-dependency-download-sha512-error:
-  - "&cDependency Jar file's sha512 does not match the expected value. Download error? The file has been deleted. &4groupId: <groupId>, artifactId: <artifactId>, version: <version>. "
+  - "&cDependency Jar file's sha512 does not match the expected value. Download error? The file has been renamed: <new_file_name>. &4groupId: <groupId>, artifactId: <artifactId>, version: <version>. "
 
 maven-dependency-done:
   - "&aDependency Jar file downloaded successfully. &egroupId: <groupId>, artifactId: <artifactId>, version: <version>. "

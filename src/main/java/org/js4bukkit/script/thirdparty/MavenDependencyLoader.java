@@ -18,6 +18,10 @@ import org.js4bukkit.utils.common.text.enums.ConsoleMessageTypeEnum;
 import java.io.File;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 
@@ -84,7 +88,6 @@ public class MavenDependencyLoader {
      * @param mavenDependency 指定的 Maven 依赖对象
      */
     @SneakyThrows
-    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void download(MavenDependency mavenDependency) {
         String version = mavenDependency.getVersion();
         String groupId = mavenDependency.getGroupId();
@@ -94,14 +97,14 @@ public class MavenDependencyLoader {
         // 拼接
         String artifactPath =
                 groupId.replace('.', '/') + "/" + artifactId + "/" +
-                version + "/" + artifactId + "-" + version + ".jar";
+                        version + "/" + artifactId + "-" + version + ".jar";
 
-        String[] strings = new String[]{
+        List<String> strings = Arrays.asList(
                 "<version>", version,
                 "<groupId>", groupId,
                 "<artifactId>", artifactId,
                 "<repository>", repository
-        };
+        );
 
         // 下载链接
         URL downloadUrl = new URL(
@@ -116,8 +119,8 @@ public class MavenDependencyLoader {
         // 构建目标文件
         String targetFilePath =
                 ThirdPartyJarLoader.THIRD_PARTY_JARS_FOLDER + "/" +
-                groupId + "/" + artifactId + "/" + version + "/" +
-                artifactId + "-" + version + ".jar";
+                        groupId + "/" + artifactId + "/" + version + "/" +
+                        artifactId + "-" + version + ".jar";
 
         File targetFile = new File(targetFilePath);
 
@@ -128,7 +131,7 @@ public class MavenDependencyLoader {
             QuickUtils.sendMessageByKey(
                     ConsoleMessageTypeEnum.NORMAL,
                     "maven-dependency-exists",
-                    strings
+                    strings.toArray(new String[0])
             );
 
             return;
@@ -137,7 +140,7 @@ public class MavenDependencyLoader {
         QuickUtils.sendMessageByKey(
                 ConsoleMessageTypeEnum.NORMAL,
                 "maven-dependency-start-download",
-                strings
+                strings.toArray(new String[0])
         );
 
         // 下载
@@ -157,7 +160,14 @@ public class MavenDependencyLoader {
         boolean sha512Equals = expectedSha512.equals(actualSha512);
 
         if (!sha512Equals) {
-            targetFile.delete();
+            File newFile = new File(targetFile.getParent(), targetFile.getName() + "_" + actualSha512);
+            Files.move(targetFile.toPath(), newFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+            strings.add("<err_sha512>");
+            strings.add(actualSha512);
+
+            strings.add("<new_file_name>");
+            strings.add(newFile.getName());
         } else {
             mavenDependency.setFile(targetFile);
         }
@@ -165,7 +175,7 @@ public class MavenDependencyLoader {
         QuickUtils.sendMessageByKey(
                 sha512Equals ? ConsoleMessageTypeEnum.NORMAL : ConsoleMessageTypeEnum.ERROR,
                 sha512Equals ? "libs-download-sha512-done" : "libs-download-sha512-error",
-                strings
+                strings.toArray(new String[0])
         );
     }
 }

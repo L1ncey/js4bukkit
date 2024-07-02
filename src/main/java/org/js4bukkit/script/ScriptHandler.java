@@ -4,6 +4,7 @@ import de.leonhard.storage.Yaml;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
+import org.bukkit.Bukkit;
 import org.js4bukkit.Js4Bukkit;
 import org.js4bukkit.io.config.ConfigManager;
 import org.js4bukkit.script.interop.command.CommandInterop;
@@ -130,9 +131,11 @@ public class ScriptHandler {
         );
 
         // Placeholder API 注销
-        PlaceholderInterop.PLACEHOLDER_INTEROPS.forEach(
-                PlaceholderInterop::unregister
-        );
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            PlaceholderInterop.PLACEHOLDER_INTEROPS.forEach(
+                    PlaceholderInterop::unregister
+            );
+        }
 
         // 简易监听器注销应在普通监听器之前
         EasyEventListenerInterop.EASY_EVENT_LISTENERS.forEach(
@@ -159,11 +162,7 @@ public class ScriptHandler {
     }
 
     /**
-     * 重载脚本。
-     *
-     * <p>
-     * 强制同步。
-     * </p>
+     * 重载脚本，强制同步。
      */
     public static void reloadScripts() {
         // 同步

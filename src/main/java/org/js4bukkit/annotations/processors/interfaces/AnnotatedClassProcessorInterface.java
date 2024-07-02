@@ -6,10 +6,6 @@ import org.js4bukkit.commands.annotations.impl.AutoRegisterCommandProcessorImpl;
 /**
  * 实现该接口将可以使用 {@link AutoAnnotationProcessor} 注解进行自动化处理。
  *
- * <p>
- * 具体实例可看 {@link AutoRegisterCommandProcessorImpl}.
- * </p>
- *
  * @author NaerQAQ
  * @version 1.0
  * @see AutoAnnotationProcessor

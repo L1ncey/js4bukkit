@@ -55,7 +55,8 @@ public class ThirdPartyJarLoader {
      * 加载 libs 文件夹下所有 Jar 文件。
      */
     public static void load() {
-        IOUtils.getFiles(THIRD_PARTY_JARS_FOLDER)
+        IOUtils.getFiles(THIRD_PARTY_JARS_FOLDER).stream()
+                .filter(file -> file.getName().endsWith(".jar"))
                 .forEach(ThirdPartyJarLoader::load);
     }
 
